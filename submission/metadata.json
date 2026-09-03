@@ -10,7 +10,7 @@
   "authentication":"none",
   "privacy_policy_url":"https://glasses-finder-mcp.onrender.com/privacy",
   "terms_url":"https://glasses-finder-mcp.onrender.com/terms",
-  "demo_url":"https://glasses-finder-mcp.onrender.com/demo",
+  "demo_url":"https://glasses-finder-mcp.onrender.com/demo.mp4",
   "affiliate_disclosure":"Glasses Finder may earn a commission when users buy through partner links. Recommendations rank user fit first.",
   "review_notes":"The published deployment exposes only recommend_glasses. Staging uses a curated catalog; affiliate tracking is enabled only after merchant approval."
 }
