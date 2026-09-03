@@ -7,14 +7,14 @@
 - Curated staging catalog across four eyewear merchants.
 - Ranking explanations, tradeoffs, affiliate disclosure, privacy policy, and terms.
 - Automated tests and local MCP verification.
+- Public GitHub repository and Render Blueprint deployment.
+- Live HTTPS verification for `/health` and `recommend_glasses` through `/mcp`.
 
 ## Next
 
-1. Create and push the GitHub repository.
-2. Deploy the Render Blueprint and verify the public MCP endpoint.
-3. Apply to eyewear affiliate programs and enter approved tracking templates.
-4. Create final icon and demo video.
-5. Submit the app to OpenAI review.
+1. Apply to eyewear affiliate programs and enter approved tracking templates.
+2. Create final icon and demo video.
+3. Submit the app to OpenAI review.
 
 ## Important
 
