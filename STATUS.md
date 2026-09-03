@@ -9,12 +9,15 @@
 - Automated tests and local MCP verification.
 - Public GitHub repository and Render Blueprint deployment.
 - Live HTTPS verification for `/health` and `recommend_glasses` through `/mcp`.
+- Final 512px app icon.
+- Current official affiliate-program verification for GlassesUSA, EyeBuyDirect, and Zenni.
 
 ## Next
 
-1. Apply to eyewear affiliate programs and enter approved tracking templates.
-2. Create final icon and demo video.
-3. Submit the app to OpenAI review.
+1. Apply to GlassesUSA and Zenni in Impact, then EyeBuyDirect in CJ.
+2. Enter approved tracking templates and request product feeds.
+3. Record the final demo video.
+4. Submit the app to OpenAI review.
 
 ## Important
 
