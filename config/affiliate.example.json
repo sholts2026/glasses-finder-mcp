@@ -1,0 +1,38 @@
+{
+  "ollie": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://www.ollie.com/?irclickid={clickId}&utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Paste approved Ollie tracking URL or template here."
+  },
+  "nomnom": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://buy.nomnomnow.com/affiliate/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Replace with Rakuten deep link after approval."
+  },
+  "petplate": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://beta.petplate.com/ambassador?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Enable after PetPlate/Awin approval."
+  },
+  "saatva": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://www.saatva.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Replace with approved Awin/ShareASale tracking link."
+  },
+  "nectar": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://www.nectarsleep.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Replace with Impact tracking link after approval."
+  },
+  "dreamcloud": {
+    "enabled": false,
+    "affiliateUrlTemplate": "https://www.dreamcloudsleep.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "partnerId": "",
+    "notes": "Replace with Impact tracking link after approval."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "glasses-finder",
+  "version": "0.1.0",
+  "description": "Glasses Finder MCP server for ChatGPT plugin submission.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "import:feed": "node scripts/import-feed.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

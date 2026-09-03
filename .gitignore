@@ -1,0 +1,6 @@
+node_modules/
+.env
+config/affiliate.json
+clicks.jsonl
+coverage/
+.DS_Store

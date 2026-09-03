@@ -1,0 +1,6 @@
+{
+  "glassesusa":{"name":"GlassesUSA","category":"eyewear","affiliateNetwork":"Pending verification","commission":"Enable only after approval","cookieDays":null,"feedStatus":"Request product feed after approval","baseUrl":"https://www.glassesusa.com"},
+  "eyebuydirect":{"name":"EyeBuyDirect","category":"eyewear","affiliateNetwork":"Pending","commission":"Not enabled","cookieDays":null,"feedStatus":"Curated staging catalog","baseUrl":"https://www.eyebuydirect.com"},
+  "warbyparker":{"name":"Warby Parker","category":"eyewear","affiliateNetwork":"Pending","commission":"Not enabled","cookieDays":null,"feedStatus":"Curated staging catalog","baseUrl":"https://www.warbyparker.com"},
+  "zenni":{"name":"Zenni Optical","category":"eyewear","affiliateNetwork":"Pending","commission":"Not enabled","cookieDays":null,"feedStatus":"Curated staging catalog","baseUrl":"https://www.zennioptical.com"}
+}
