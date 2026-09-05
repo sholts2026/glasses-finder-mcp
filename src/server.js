@@ -63,6 +63,65 @@ function page(title, body) {
 </html>`;
 }
 
+export function privacyPolicyPage() {
+  return page("Glasses Finder Privacy Policy", `
+<header>
+  <p class="eyebrow">Effective September 5, 2026</p>
+  <h1>Privacy Policy</h1>
+  <p class="lead">This policy explains what Glasses Finder processes, why it is used, who receives it, how long it is kept, and the choices available to users.</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Data we process</h2>
+    <ul>
+      <li><strong>Shopping criteria:</strong> the query and optional criteria a user submits, including budget, face shape, frame width, style, prescription category, blue-light preference, and requested result limit.</li>
+      <li><strong>Recommendation output:</strong> product names, merchants, prices, fit scores, ranking reasons, follow-up questions, and outbound merchant links returned to ChatGPT.</li>
+      <li><strong>Affiliate-click data:</strong> when a user voluntarily opens a shopping link, we record time, app identifier, merchant, product SKU, recommendation rank, broad intent tags, destination URL, and a randomly generated click identifier.</li>
+      <li><strong>Technical data:</strong> our hosting provider may automatically process standard request metadata such as IP address, timestamp, URL, browser or client information, and server diagnostics for delivery, security, and troubleshooting.</li>
+    </ul>
+    <p>Glasses Finder does not request names, email addresses, account credentials, payment-card details, government identifiers, precise location, full prescriptions, medical records, or pupillary-distance measurements. It does not use cookies, create user accounts, or maintain profiles across conversations.</p>
+  </section>
+  <section class="panel">
+    <h2>How and why we use data</h2>
+    <ul>
+      <li>Shopping criteria are processed to filter and rank eyewear and explain the recommendations requested by the user.</li>
+      <li>Recommendation output is returned to ChatGPT so it can present the results in the conversation.</li>
+      <li>Affiliate-click data is used to route the user to the selected merchant, measure referral performance, detect abuse, and allow an approved affiliate network or merchant to attribute a purchase.</li>
+      <li>Technical data is used to operate, secure, diagnose, and improve the reliability of the service.</li>
+    </ul>
+    <p>We do not sell personal information, use it for targeted advertising, or use shopping criteria to build advertising profiles.</p>
+  </section>
+  <section class="panel">
+    <h2>Recipients and third parties</h2>
+    <ul>
+      <li><strong>OpenAI/ChatGPT:</strong> supplies tool inputs and receives the recommendation output. OpenAI processes that information under its own terms and privacy policy.</li>
+      <li><strong>Render:</strong> hosts the Glasses Finder server and may process technical request data as our infrastructure provider.</li>
+      <li><strong>Selected eyewear merchants and approved affiliate networks:</strong> receive click and referral parameters only after a user chooses an outbound shopping link. Their sites then operate under their own privacy policies.</li>
+    </ul>
+    <p>We do not disclose shopping criteria or click data to other third parties except when required by law, to protect the service and users, or in connection with a business transfer subject to appropriate safeguards.</p>
+  </section>
+  <section class="panel">
+    <h2>Retention and security</h2>
+    <p>Shopping criteria and recommendation outputs are processed for the request and are not stored by the Glasses Finder application. Affiliate-click records are automatically deleted after 30 days. Hosting security and diagnostic logs may be retained by Render for up to 30 days or for the shorter period provided by the applicable hosting plan. We may retain a record longer only when reasonably necessary to investigate abuse, comply with law, or resolve a dispute.</p>
+    <p>We use reasonable technical and organizational safeguards, but no internet service can guarantee absolute security.</p>
+  </section>
+  <section class="panel">
+    <h2>User choices and controls</h2>
+    <ul>
+      <li>Users may omit optional shopping criteria, stop using the app, or choose not to open outbound links.</li>
+      <li>Users may request access, correction, or deletion of data associated with a click identifier, or ask a privacy question, by emailing <a href="mailto:sholtsman29@gmail.com">sholtsman29@gmail.com</a>.</li>
+      <li>We may need the click identifier and approximate click time to locate a record because we do not collect a user's name or account identifier.</li>
+      <li>Requests are handled within 30 days, subject to identity verification and applicable legal exceptions.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h2>Children, international processing, and changes</h2>
+    <p>The service is not directed to children under 13. Data may be processed in the United States or other locations used by OpenAI, Render, merchants, and affiliate networks. We will update this page when our practices materially change and revise the effective date above.</p>
+  </section>
+</main>
+<footer><p>Privacy contact: <a href="mailto:sholtsman29@gmail.com">sholtsman29@gmail.com</a></p></footer>`);
+}
+
 function homePage() {
   const name = "Glasses Finder";
   const lead = "A ChatGPT shopping app that helps people compare eyeglass frames by face shape, prescription type, frame width, style, lens options, and budget.";
@@ -88,8 +147,8 @@ function homePage() {
   </section>
   <section class="panel" id="privacy">
     <h2>Privacy Policy</h2>
-    <p>Glasses Finder processes only shopping criteria a user chooses to provide, such as budget, face shape, frame width, style, and prescription type. It does not ask for payment information, passwords, government IDs, precise location, or medical records.</p>
-    <p>Request details are used to generate recommendations, improve product ranking, and maintain basic abuse prevention and debugging logs. Affiliate clicks may include app, merchant, SKU, rank, and a non-personal click reference so approved affiliate networks can attribute purchases.</p>
+    <p>Glasses Finder processes user-supplied shopping criteria to return recommendations. When a user chooses an outbound link, limited click data is retained for up to 30 days for routing, attribution, and abuse prevention.</p>
+    <p><a href="/privacy">Read the complete Privacy Policy</a> for all data categories, purposes, recipients, retention periods, and user controls.</p>
   </section>
   <section class="panel" id="terms">
     <h2>Terms of Use</h2>
@@ -136,16 +195,7 @@ export function createServer() {
       }
 
       if (req.method === "GET" && url.pathname === "/privacy") {
-        sendText(res, 200, `Privacy Policy
-
-Glasses Finder is a shopping assistant for ChatGPT. We process only shopping criteria a user chooses to provide, such as budget, face shape, frame width, style, and prescription type. We do not ask for payment information, passwords, government IDs, precise location, or medical records.
-
-We use request details to generate recommendations, improve product ranking, and maintain basic abuse prevention and debugging logs. Affiliate clicks may include app, merchant, SKU, rank, and a non-personal click reference so that approved affiliate networks can attribute purchases.
-
-We may earn commissions when users buy through partner links. Recommendations are ranked by user fit first. Eyewear guidance is shopping guidance only and is not medical advice.
-
-Support and privacy contact: sholtsman29@gmail.com
-`);
+        sendText(res, 200, privacyPolicyPage(), "text/html; charset=utf-8");
         return;
       }
 

@@ -1,8 +1,25 @@
-import { appendFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { applyAffiliateTemplate } from "./affiliateConfig.js";
 
 const clickLog = join(process.cwd(), "clicks.jsonl");
+const clickRetentionMs = 30 * 24 * 60 * 60 * 1000;
+
+function pruneExpiredClicks(now = Date.now()) {
+  if (!existsSync(clickLog)) return;
+  const cutoff = now - clickRetentionMs;
+  const retained = readFileSync(clickLog, "utf8")
+    .split("\n")
+    .filter(Boolean)
+    .filter((line) => {
+      try {
+        return Date.parse(JSON.parse(line).ts) >= cutoff;
+      } catch {
+        return false;
+      }
+    });
+  writeFileSync(clickLog, retained.length ? `${retained.join("\n")}\n` : "");
+}
 
 export function createClickId({ appId, merchant, sku }) {
   const random = Math.random().toString(36).slice(2, 10);
@@ -31,6 +48,7 @@ export function buildRedirectPath(product, appId, { rank = null, intentTags = []
 }
 
 export function trackClick({ appId, merchant, sku, destination, queryId = null, rank = null, intentTags = [] }) {
+  pruneExpiredClicks();
   const record = {
     ts: new Date().toISOString(),
     appId,
