@@ -5,6 +5,7 @@ import { pathToFileURL } from "node:url";
 import { fileURLToPath } from "node:url";
 import { loadProducts } from "./catalogs.js";
 import { buildAffiliateUrl, trackClick } from "./affiliate.js";
+import { getMetrics } from "./analytics.js";
 import { recommend, appProfiles } from "./apps.js";
 import { handleMcpRequest } from "./mcp.js";
 import { loadSubmission } from "./submissions.js";
@@ -274,6 +275,20 @@ Support contact: sholtsman29@gmail.com
         return;
       }
 
+      if (req.method === "GET" && url.pathname === "/metrics") {
+        const token = process.env.ANALYTICS_TOKEN;
+        if (!token) {
+          sendJson(res, 404, { error: "Not found" });
+          return;
+        }
+        if (req.headers.authorization !== `Bearer ${token}`) {
+          sendJson(res, 401, { error: "Unauthorized" });
+          return;
+        }
+        const days = url.searchParams.get("days") ?? 30;
+        sendJson(res, 200, getMetrics({ days }));
+        return;
+      }
       if (req.method === "GET" && url.pathname === "/apps") {
         sendJson(res, 200, { apps: visibleAppEntries().map(([, { parser, scorer, ...profile }]) => profile) });
         return;
@@ -365,3 +380,5 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     console.log(`Commerce Finder listening on http://localhost:${port}`);
   });
 }
+
+

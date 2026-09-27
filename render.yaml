@@ -18,3 +18,6 @@ services:
         sync: false
       - key: AFFILIATE_CONFIG_JSON
         sync: false
+      - key: ANALYTICS_TOKEN
+        sync: false
+

@@ -1,4 +1,5 @@
 import { recommend } from "./apps.js";
+import { trackEvent } from "./analytics.js";
 
 const tool = {
   name:"recommend_glasses",
@@ -9,6 +10,19 @@ const tool = {
   annotations:{readOnlyHint:true,openWorldHint:false,destructiveHint:false}
 };
 
+function trackRecommendation(appId, tool, args, result) {
+  try {
+    trackEvent("mcp_invocation", { appId, tool, hasBudget: args.budget !== undefined });
+    trackEvent("recommendations_shown", {
+      appId,
+      tool,
+      count: result.recommendations?.length ?? 0,
+      merchants: [...new Set((result.recommendations ?? []).map((item) => item.merchant))]
+    });
+  } catch {
+    // Analytics must never affect a shopper recommendation.
+  }
+}
 export function handleMcpRequest(message) {
   if (Array.isArray(message)) return message.filter((item)=>item.id!==undefined).map(handleMcpRequest);
   if (!message?.method) return {jsonrpc:"2.0",id:message?.id??null,error:{code:-32600,message:"Invalid request"}};
@@ -19,7 +33,9 @@ export function handleMcpRequest(message) {
     const {name,arguments:args={}}=message.params??{};
     if (name!==tool.name) return {jsonrpc:"2.0",id:message.id,error:{code:-32601,message:`Unknown tool: ${name}`}};
     const result=recommend("glasses-finder",args);
+    trackRecommendation("glasses-finder", name, args, result);
     return {jsonrpc:"2.0",id:message.id,result:{structuredContent:result,content:[{type:"text",text:JSON.stringify(result,null,2)}]}};
   }
   return {jsonrpc:"2.0",id:message.id,error:{code:-32601,message:`Unknown method: ${message.method}`}};
 }
+
