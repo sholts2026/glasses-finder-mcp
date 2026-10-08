@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { recommend } from "../src/apps.js";
 import { handleMcpRequest } from "../src/mcp.js";
+import { parseFrameSize, parseGlassesIntent } from "../src/intent.js";
+import { scoreGlasses } from "../src/scoring.js";
 import { loadSubmission } from "../src/submissions.js";
 import { privacyPolicyPage } from "../src/server.js";
 
@@ -10,3 +12,7 @@ test("round-face progressive query receives ranked recommendations",()=>{const r
 test("MCP exposes only the glasses tool",()=>{const r=handleMcpRequest({jsonrpc:"2.0",id:1,method:"tools/list",params:{}});assert.deepEqual(r.result.tools.map((t)=>t.name),["recommend_glasses"]);});
 test("MCP tool returns structured content",()=>{const r=handleMcpRequest({jsonrpc:"2.0",id:2,method:"tools/call",params:{name:"recommend_glasses",arguments:{query:"lightweight glasses for a square face under $180"}}});assert.equal(r.result.structuredContent.appId,"glasses-finder");assert.ok(r.result.structuredContent.presentation.cards.length);});
 test("privacy policy discloses complete data practices",()=>{const policy=privacyPolicyPage();for(const disclosure of ["Data we process","How and why we use data","Recipients and third parties","Retention and security","User choices and controls","Affiliate-click data","Technical data","automatically deleted after 30 days","access, correction, or deletion"]){assert.match(policy,new RegExp(disclosure.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i"));}});
+test("intent parser understands current frame size notation",()=>{const intent=parseGlassesIntent("I wear 53-18-145 and need progressive glasses for a wide face");assert.deepEqual(intent.currentFrameSize,{raw:"53-18-145",lensWidth:53,bridgeWidth:18,templeLength:145});assert.equal(intent.prescription,"progressive");assert.equal(intent.width,"wide");assert.deepEqual(parseFrameSize("52/17/140"),{raw:"52/17/140",lensWidth:52,bridgeWidth:17,templeLength:140});});
+test("recommendations separate known facts from inferences and missing measurements",()=>{const r=recommend("glasses-finder",{query:"I wear 53-18-145 and need progressive glasses under $200"});assert.ok(r.recommendations.length>=1);const top=r.recommendations[0];assert.ok(Array.isArray(top.knownFacts));assert.ok(Array.isArray(top.inferences));assert.ok(Array.isArray(top.missingFacts));assert.match(top.missingFacts.join(" "),/Frame size|measurements|Lens height/i);assert.equal(top.fitConfidence,"low");});
+test("commission weight does not improve fit score",()=>{const base={merchant:"test",category:"eyewear",name:"Test",price:100,attributes:{faceShapes:["round"],widths:["medium"],styles:["classic"],prescriptions:["single_vision"],blueLight:false}};const intent=parseGlassesIntent("classic glasses for a round face under $150");const low=scoreGlasses({...base,sku:"low",commissionWeight:0},intent).score;const high=scoreGlasses({...base,sku:"high",commissionWeight:1},intent).score;assert.equal(high,low);});
+test("follow-up questions do not repeat explicitly supplied lens type",()=>{const r=recommend("glasses-finder",{query:"I wear 53-18-145 and need progressive glasses under $200"});assert.ok(!r.nextQuestions.join(" ").includes("single-vision"));});

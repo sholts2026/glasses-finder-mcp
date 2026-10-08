@@ -238,15 +238,22 @@ Support contact: sholtsman29@gmail.com
       }
 
       if (req.method === "GET" && url.pathname === "/demo") {
+        const demoQuery = "I wear 53-18-145. Find progressive glasses under $200 that suit a round face.";
         const demoResult = recommend("glasses-finder", {
-          query: "Find progressive glasses under $200 that suit a round face."
+          query: demoQuery
         });
         const demoCards = demoResult.recommendations.map((item, index) => `
-  <section class="panel"><h2>${index + 1}. ${item.name}</h2><p><strong>$${item.price}+ frame</strong> · Fit score ${item.score}/100</p><p>${item.reasons.join(" · ")}</p></section>`).join("");
+  <section class="panel">
+    <h2>${index + 1}. ${item.name}</h2>
+    <p><strong>$${item.price}+ frame</strong> · Fit score ${item.score}/100 · Confidence: ${item.fitConfidence}</p>
+    <p>${item.reasons.join(" · ")}</p>
+    <p><strong>Known facts:</strong> ${item.knownFacts.join(" · ")}</p>
+    <p><strong>Missing data:</strong> ${item.missingFacts.join(" · ")}</p>
+  </section>`).join("");
         sendText(res, 200, page("Glasses Finder Demo", `
 <header><h1>Glasses Finder Demo</h1><p class="lead">Demo flow for OpenAI plugin review.</p></header>
 <main>
-  <section class="panel"><h2>User prompt</h2><p>Find progressive glasses under $200 that suit a round face.</p></section>
+  <section class="panel"><h2>User prompt</h2><p>${demoQuery}</p></section>
   <section class="panel"><h2>MCP tool</h2><p><code>recommend_glasses</code></p></section>
   ${demoCards}
   <p>${demoResult.presentation.disclosure}</p>
@@ -280,8 +287,11 @@ Support contact: sholtsman29@gmail.com
         sendText(res, 200, page("Partner Information", `
 <header><h1>Partner Information</h1><p class="lead">This app is an independent affiliate publisher focused on high-intent ChatGPT shopping conversations.</p></header>
 <main>
+  <section class="panel"><h2>Audience fit</h2><p>Users are shopping for prescription glasses, progressive frames, budget frames, wide or narrow fits, blue-light lenses, and alternatives to styles they already like. Many arrive with an existing frame size such as <code>53-18-145</code>, which is high-intent purchase behavior.</p></section>
   <section class="panel"><h2>Promotion methods</h2><p>ChatGPT app recommendations, supporting SEO pages, comparison content, and contextual affiliate links shown after a user requests product options.</p></section>
-  <section class="panel"><h2>Compliance posture</h2><p>Affiliate disclosure is shown with outbound links. The app avoids eye-care diagnosis, medical treatment claims, trademark bidding, false coupons, and unauthorized brand claims.</p></section>
+  <section class="panel"><h2>Recommendation standards</h2><p>The app ranks fit, lens needs, measurements, budget, and comfort before affiliate value. It separates known facts from fit inferences and missing product data instead of inventing unavailable measurements, colors, prices, stock, reviews, or lens compatibility.</p></section>
+  <section class="panel"><h2>Compliance posture</h2><p>Affiliate disclosure is shown with outbound links. The app avoids eye-care diagnosis, medical treatment claims, trademark bidding, false coupons, and unauthorized brand claims. Users are told to verify prescription, PD, lens options, price, availability, returns, and final measurements with the merchant or an eye-care professional.</p></section>
+  <section class="panel"><h2>Data/feed request</h2><p>For approved partners, the most useful feed fields are product URL, SKU, frame size, total frame width, lens width, bridge width, temple length, lens height, material, color, weight, price, stock, supported lens types, progressive suitability, and deep-link tracking template.</p></section>
 </main>`), "text/html; charset=utf-8");
         return;
       }

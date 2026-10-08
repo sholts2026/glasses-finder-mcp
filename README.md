@@ -2,6 +2,8 @@
 
 Glasses Finder is an MCP-based ChatGPT shopping app for comparing physical eyeglass frames by face shape, prescription type, fit, style, lens options, and budget.
 
+The current recommendation engine is fit-first: it parses current-frame measurements such as `52-18-140`, separates known facts from fit inferences and missing product data, and does not use affiliate commission to improve ranking. See `docs/GLASSES_PLUGIN_AUDIT_AND_TESTS.md` for the product audit, improved instructions, scoring model, and 50 QA test cases.
+
 ## Run
 
 ```powershell

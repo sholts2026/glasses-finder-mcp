@@ -3,10 +3,10 @@
     "proposedName":"Glasses Finder",
     "targetKeyword":"glasses finder",
     "category":"Retail and Shopping",
-    "shortDescription":"Find glasses by face shape, prescription, fit, style, and budget.",
-    "longDescription":"Glasses Finder helps shoppers compare physical eyeglass frames by face shape, frame width, prescription type, progressive-lens support, material, style, blue-light preference, and budget. It explains fit tradeoffs and reminds users to verify prescription and measurements with the merchant.",
-    "keywords":["glasses","glasses finder","eyeglasses","progressive glasses","frames for face shape","prescription glasses"],
-    "starterPrompts":["Find progressive glasses under $200 that suit a round face.","Find lightweight frames for a narrow square face.","Compare medium-width glasses with blue-light lenses."],
+    "shortDescription":"Find glasses by fit, prescription, frame measurements, style, and budget.",
+    "longDescription":"Glasses Finder helps shoppers compare physical eyeglass frames by current frame measurements such as 52-18-140, face shape, frame width, prescription type, progressive-lens support, material, style, blue-light preference, and budget. It separates known facts from fit inferences and missing product data, then reminds users to verify prescription, measurements, lens options, and final price with the merchant.",
+    "keywords":["glasses","glasses finder","eyeglasses","progressive glasses","frames for face shape","prescription glasses","52-18-140 glasses size"],
+    "starterPrompts":["I wear 53-18-145. Find progressive glasses under $200.","Find lightweight frames for a narrow square face.","Compare these sizes: 53-18-145 vs 47-21-140."],
     "affiliateDisclosure":"Glasses Finder may earn a commission when users buy through partner links. Recommendations rank user fit first.",
     "safetyPolicy":"Provide shopping guidance, not eye-care diagnosis. Users must confirm their prescription, pupillary distance, measurements, lens options, and final price with the merchant or an eye-care professional."
   }

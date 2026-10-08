@@ -1,16 +1,23 @@
 {
-  "name":"Glasses Finder",
-  "short_description":"Find glasses by face shape, prescription, fit, style, and budget.",
-  "long_description":"Glasses Finder ranks physical eyeglass frames by shopper fit across face shape, frame width, prescription type, progressive-lens support, material, style, lens preferences, and budget. Results explain tradeoffs and include affiliate disclosure before outbound shopping links.",
-  "version":"1.0.1",
-  "category":"Other",
-  "example_prompts":["Find progressive glasses under $200 that suit a round face.","Find lightweight frames for a narrow square face.","Compare medium-width glasses with blue-light lenses."],
-  "tools":["recommend_glasses"],
-  "server_url":"https://glasses-finder-mcp.onrender.com/mcp",
-  "authentication":"none",
-  "privacy_policy_url":"https://glasses-finder-mcp.onrender.com/privacy",
-  "terms_url":"https://glasses-finder-mcp.onrender.com/terms",
-  "demo_url":"https://glasses-finder-mcp.onrender.com/demo.mp4",
-  "affiliate_disclosure":"Glasses Finder may earn a commission when users buy through partner links. Recommendations rank user fit first.",
-  "review_notes":"The published deployment exposes only recommend_glasses. Staging uses a curated catalog; affiliate tracking is enabled only after merchant approval."
+  "name": "Glasses Finder",
+  "short_description": "Find glasses by fit, prescription, frame measurements, style, and budget.",
+  "long_description": "Glasses Finder ranks physical eyeglass frames by shopper fit across current frame measurements such as 52-18-140, face shape, frame width, prescription type, progressive-lens support, material, style, lens preferences, and budget. Results separate known product facts from fit inferences and missing data, explain tradeoffs, and include affiliate disclosure before outbound shopping links.",
+  "version": "1.0.2",
+  "category": "Other",
+  "example_prompts": [
+    "I wear 53-18-145. Find progressive glasses under $200.",
+    "Find lightweight frames for a narrow square face.",
+    "Compare these sizes: 53-18-145 vs 47-21-140."
+  ],
+  "tools": [
+    "recommend_glasses"
+  ],
+  "server_url": "https://glasses-finder-mcp.onrender.com/mcp",
+  "authentication": "none",
+  "privacy_policy_url": "https://glasses-finder-mcp.onrender.com/privacy",
+  "terms_url": "https://glasses-finder-mcp.onrender.com/terms",
+  "demo_url": "https://glasses-finder-mcp.onrender.com/demo.mp4",
+  "affiliate_disclosure": "Glasses Finder may earn a commission when users buy through partner links. Recommendations rank user fit first.",
+  "review_notes": "The published deployment exposes only recommend_glasses. Staging uses a curated catalog; affiliate tracking is enabled only after merchant approval. The app does not invent unavailable product dimensions, prices, colors, stock, reviews, or lens compatibility; results separate known facts, inferences, and missing data.",
+  "developer_name": "AI Product Finders"
 }

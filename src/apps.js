@@ -19,8 +19,29 @@ export function recommend(appId, payload = {}) {
     .filter(({ product }) => process.env.REQUIRE_AFFILIATE_PRODUCTS === "false" || !process.env.PUBLISHED_APP || hasAffiliateTemplate(product))
     .sort((a, b) => b.scored.score - a.scored.score)
     .slice(0, payload.limit ?? 3)
-    .map(({ product, scored }, index) => ({ sku:product.sku, name:product.name, merchant:merchants[product.merchant]?.name ?? product.merchant, price:product.price, priceUnit:product.priceUnit, score:scored.score, reasons:scored.reasons, buyUrl:buildAffiliateUrl(product, appId), redirectPath:buildRedirectPath(product, appId,{rank:index+1,intentTags:tags}), affiliateDisclosure:"We may earn a commission if you buy through this link. Rankings are based on user fit first." }));
-  const result = { appId, displayName:profile.displayName, intent, recommendations, nextQuestions:[intent.faceShape?null:"What is your face shape?",intent.width?null:"Do you know your current frame width?","Do you need single-vision, reading, or progressive lenses?"].filter(Boolean), productCount:loadProducts().filter((p)=>p.category===profile.category).length };
+    .map(({ product, scored }, index) => ({
+      sku:product.sku,
+      name:product.name,
+      merchant:merchants[product.merchant]?.name ?? product.merchant,
+      price:product.price,
+      priceUnit:product.priceUnit,
+      score:scored.score,
+      fitConfidence:scored.fitConfidence,
+      reasons:scored.reasons,
+      knownFacts:scored.knownFacts,
+      inferences:scored.inferences,
+      missingFacts:scored.missingFacts,
+      buyUrl:buildAffiliateUrl(product, appId),
+      redirectPath:buildRedirectPath(product, appId,{rank:index+1,intentTags:tags}),
+      affiliateDisclosure:"We may earn a commission if you buy through this link. Rankings are based on user fit first."
+    }));
+  const nextQuestions = [
+    intent.currentFrameSize ? null : "If you have current glasses that fit, what size is printed on the temple, for example 52-18-140?",
+    intent.faceShape ? null : "Do you know your face shape, or should I keep the recommendation style-neutral?",
+    intent.width ? null : "Would you describe your face/frame fit as narrow, medium, or wide?",
+    intent.prescriptionExplicit ? null : "Do you need single-vision, reading, or progressive lenses?"
+  ].filter(Boolean).slice(0, 3);
+  const result = { appId, displayName:profile.displayName, intent, recommendations, nextQuestions, productCount:loadProducts().filter((p)=>p.category===profile.category).length };
   if (payload.includePresentation ?? true) result.presentation = buildPresentation(appId, result);
   return result;
 }

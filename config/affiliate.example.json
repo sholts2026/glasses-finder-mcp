@@ -1,38 +1,23 @@
 {
-  "ollie": {
+  "glassesusa": {
     "enabled": false,
-    "affiliateUrlTemplate": "https://www.ollie.com/?irclickid={clickId}&utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "affiliateUrlTemplate": "PASTE_APPROVED_IMPACT_DEEP_LINK_TEMPLATE",
     "partnerId": "",
-    "notes": "Paste approved Ollie tracking URL or template here."
+    "network": "Impact",
+    "notes": "Enable only after GlassesUSA approves the publisher and Impact provides a tracking/deep-link template."
   },
-  "nomnom": {
+  "zenni": {
     "enabled": false,
-    "affiliateUrlTemplate": "https://buy.nomnomnow.com/affiliate/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "affiliateUrlTemplate": "PASTE_APPROVED_IMPACT_DEEP_LINK_TEMPLATE",
     "partnerId": "",
-    "notes": "Replace with Rakuten deep link after approval."
+    "network": "Impact",
+    "notes": "Enable only after Zenni approves the publisher and Impact provides a tracking/deep-link template."
   },
-  "petplate": {
+  "eyebuydirect": {
     "enabled": false,
-    "affiliateUrlTemplate": "https://beta.petplate.com/ambassador?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
+    "affiliateUrlTemplate": "PASTE_APPROVED_CJ_DEEP_LINK_TEMPLATE",
     "partnerId": "",
-    "notes": "Enable after PetPlate/Awin approval."
-  },
-  "saatva": {
-    "enabled": false,
-    "affiliateUrlTemplate": "https://www.saatva.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
-    "partnerId": "",
-    "notes": "Replace with approved Awin/ShareASale tracking link."
-  },
-  "nectar": {
-    "enabled": false,
-    "affiliateUrlTemplate": "https://www.nectarsleep.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
-    "partnerId": "",
-    "notes": "Replace with Impact tracking link after approval."
-  },
-  "dreamcloud": {
-    "enabled": false,
-    "affiliateUrlTemplate": "https://www.dreamcloudsleep.com/?utm_source=chatgpt&utm_medium=app&utm_campaign={appId}&utm_content={sku}",
-    "partnerId": "",
-    "notes": "Replace with Impact tracking link after approval."
+    "network": "CJ",
+    "notes": "Enable only after EyeBuyDirect approves the publisher and CJ provides a tracking/deep-link template."
   }
 }
