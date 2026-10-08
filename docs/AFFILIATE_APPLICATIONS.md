@@ -85,8 +85,8 @@ sholtsman29@gmail.com
 
 ## Status
 
-- [ ] GlassesUSA: apply / verify status in Impact.
-- [ ] Zenni Optical: apply / verify status in Impact.
+- [x] GlassesUSA: re-applied in Impact on 2026-10-08. Impact returned an immediate decline with no detailed reason shown in the marketplace UI.
+- [ ] Zenni Optical: inspect/apply in Impact.
 - [ ] EyeBuyDirect: apply / verify status in CJ or current public signup flow.
 - [ ] Warby Parker: verify Awin publisher availability before applying.
 - [ ] Add approved affiliate templates to `AFFILIATE_CONFIG_JSON`.

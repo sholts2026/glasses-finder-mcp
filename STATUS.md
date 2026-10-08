@@ -12,12 +12,13 @@
 - Final 512px app icon.
 - Seven-second 1280x720 H.264 review demo video.
 - Current official affiliate-program verification for GlassesUSA, EyeBuyDirect, and Zenni.
+- GlassesUSA re-application was submitted in Impact on 2026-10-08 and immediately declined with no detailed reason shown in the marketplace UI.
 - Fit-first scoring upgrade: parses `52-18-140` style frame sizes, separates known facts from inferences and missing data, and removes affiliate commission from ranking.
 - Product audit and QA plan: `docs/GLASSES_PLUGIN_AUDIT_AND_TESTS.md` includes improved instructions, scoring algorithm, recommended flow, 50 test cases, feature ideas, and conversion/affiliate improvements.
 
 ## Next
 
-1. Apply to GlassesUSA and Zenni in Impact, then EyeBuyDirect in CJ.
+1. Apply to Zenni in Impact, then EyeBuyDirect in CJ; keep GlassesUSA as declined unless a manual appeal route opens.
 2. Enter approved tracking templates and request product feeds with reliable frame dimensions, lens height, material, color, weight, stock, and deep links.
 3. Expand the catalog only with verified product data; do not manually invent frame measurements.
 4. Submit the app to OpenAI review.
