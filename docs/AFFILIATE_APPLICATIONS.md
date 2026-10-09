@@ -86,7 +86,7 @@ sholtsman29@gmail.com
 ## Status
 
 - [x] GlassesUSA: re-applied in Impact on 2026-10-08. Impact returned an immediate decline with no detailed reason shown in the marketplace UI.
-- [ ] Zenni Optical: inspect/apply in Impact.
+- [ ] Zenni Optical: inspected in Impact on 2026-10-09. Impact shows "Not yet approved to apply" for Zenni Optical and Zenni Optical - Zenbassador, so no application could be submitted yet.
 - [ ] EyeBuyDirect: apply / verify status in CJ or current public signup flow.
 - [ ] Warby Parker: verify Awin publisher availability before applying.
 - [ ] Add approved affiliate templates to `AFFILIATE_CONFIG_JSON`.
