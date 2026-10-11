@@ -87,7 +87,7 @@ sholtsman29@gmail.com
 
 - [x] GlassesUSA: re-applied in Impact on 2026-10-08. Impact returned an immediate decline with no detailed reason shown in the marketplace UI.
 - [ ] Zenni Optical: inspected in Impact on 2026-10-09. Impact shows "Not yet approved to apply" for Zenni Optical and Zenni Optical - Zenbassador, so no application could be submitted yet.
-- [ ] EyeBuyDirect: official CJ signup flow opened on 2026-10-09, but it requires a CJ publisher account password, country selection, and reCAPTCHA. Direct request sent to `CJ_LuxOptical@cj.com` on 2026-10-09 asking for publisher review, application route, and product feed/deep-link documentation.
+- [ ] EyeBuyDirect: CJ account created and EyeBuyDirect program page opened. Application attempt on 2026-10-11 was blocked because CJ says the superuser must complete the onboarding checklist and activate the account first. Checklist is 7 of 8 complete; the remaining item is Payment Details. Tax form W-8BEN is already submitted; CJ Payments is the available payment method and Tipalti is listed as coming soon. Direct request sent to `CJ_LuxOptical@cj.com` on 2026-10-09 asking for publisher review, application route, and product feed/deep-link documentation.
 - [ ] Warby Parker: public Awin listing verified on 2026-10-09. Application requires an Awin publisher account before program join can be submitted.
 - [ ] Add approved affiliate templates to `AFFILIATE_CONFIG_JSON`.
 - [ ] Request and import reliable product feed data.
