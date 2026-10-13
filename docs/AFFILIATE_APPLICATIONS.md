@@ -14,7 +14,7 @@ Date: 2026-10-08
 - GlassesUSA publishes an affiliate program with up to 30% commission, roughly 3m monthly visitors, AOV around $180, and states it looks for media publications, shopping/deals sites, blogs, review sites, comparison sites, employee benefit platforms, FSA/HSA platforms, sub-affiliates, influencers, and other high-quality publishers.
 - Zenni Optical says its affiliate program runs through Impact Radius and provides promotional links/creatives for approved publishers.
 - EyeBuyDirect publishes an affiliate program with flexible commission up to 15%, frames starting at $6, average total purchase around $65, 30-day free returns, 365-day guarantee, and a 48% repeat customer rate.
-- Warby Parker appears in Awin public merchant listings as Warby Parker (US), advertiser ID 17226, with 45-day attribution, average sale around $125, and affiliate management by Acceleration Partners. Applying requires an Awin publisher account.
+- Warby Parker appears in Awin public merchant listings as Warby Parker (US), advertiser ID 17226, with 45-day attribution, average sale around $125, and affiliate management by Acceleration Partners.
 
 ## Application Positioning
 
@@ -88,7 +88,7 @@ sholtsman29@gmail.com
 - [x] GlassesUSA: re-applied in Impact on 2026-10-08. Impact returned an immediate decline with no detailed reason shown in the marketplace UI.
 - [ ] Zenni Optical: inspected in Impact on 2026-10-09. Impact shows "Not yet approved to apply" for Zenni Optical and Zenni Optical - Zenbassador, so no application could be submitted yet.
 - [x] EyeBuyDirect: CJ account activated and application submitted on 2026-10-11. CJ shows EyeBuyDirect under Pending Applications for publisher `8077813`. Evidence screenshot: `cj-eyebuydirect-pending.png`. Direct request also sent to `CJ_LuxOptical@cj.com` on 2026-10-09 asking for publisher review, application route, and product feed/deep-link documentation.
-- [ ] Warby Parker: public Awin listing verified on 2026-10-09. Application requires an Awin publisher account before program join can be submitted.
+- [x] Warby Parker: Awin publisher account active and program join request submitted on 2026-10-13. Awin shows `Pending Approval` for advertiser `17226`. Evidence screenshot: `awin-warby-parker-pending.png`.
 - [ ] Add approved affiliate templates to `AFFILIATE_CONFIG_JSON`.
 - [ ] Request and import reliable product feed data.
 
