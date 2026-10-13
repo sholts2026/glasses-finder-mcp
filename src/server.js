@@ -183,6 +183,57 @@ function homePage() {
 </footer>`);
 }
 
+export function operationsDashboardPage() {
+  return page("Glasses Finder Operations Dashboard", `
+<header>
+  <p class="eyebrow">Operations dashboard</p>
+  <h1>Glasses Finder Status</h1>
+  <p class="lead">Single-page tracker for affiliate applications, launch readiness, Reddit outreach, and next actions. Last updated: October 13, 2026.</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Overall status</h2>
+    <ul>
+      <li><strong>App:</strong> built, tested, deployed, and publicly available.</li>
+      <li><strong>MCP endpoint:</strong> <a href="/mcp">/mcp</a></li>
+      <li><strong>Public site:</strong> <a href="/">home</a> · <a href="/partners">partner page</a> · <a href="/privacy">privacy</a> · <a href="/terms">terms</a></li>
+      <li><strong>Revenue switch:</strong> still off. No commission is earned until at least one affiliate program approves and an approved tracking template is configured.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h2>Affiliate pipeline</h2>
+    <ul>
+      <li><strong>EyeBuyDirect / CJ:</strong> pending application. Submitted October 11, 2026. Publisher ID: <code>8077813</code>. Advertiser ID: <code>6273459</code>. Evidence: <code>cj-eyebuydirect-pending.png</code>.</li>
+      <li><strong>Warby Parker / Awin:</strong> pending approval. Submitted October 13, 2026. Advertiser ID: <code>17226</code>. Evidence: <code>awin-warby-parker-pending.png</code>.</li>
+      <li><strong>GlassesUSA / Impact:</strong> declined October 8, 2026 with no detailed reason shown in the marketplace UI.</li>
+      <li><strong>Zenni / Impact:</strong> blocked. Impact currently shows <code>Not yet approved to apply</code> for Zenni Optical and Zenni Optical - Zenbassador.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h2>Reddit outreach</h2>
+    <ul>
+      <li><strong>Status:</strong> initial Reddit replies were written manually during outreach, but Reddit is not connected to affiliate tracking and is not a revenue channel by itself.</li>
+      <li><strong>Current rule:</strong> use Reddit only for helpful, non-spam answers. Avoid coupon claims, fake recommendations, repeated links, or pretending to be a customer.</li>
+      <li><strong>Good next step:</strong> track each Reddit reply in a small outreach log with subreddit, thread URL, comment URL, date, topic, link used, and follow-up needed.</li>
+      <li><strong>Best link to share when appropriate:</strong> <a href="/demo">demo</a> or <a href="/">public site</a>, not a raw affiliate link.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h2>Next actions</h2>
+    <ul>
+      <li>Check CJ and Awin for approval/rejection messages.</li>
+      <li>If approved, request product feed and deep-link template before enabling tracking.</li>
+      <li>If rejected, collect the exact reason and improve the partner page/profile before reapplying or appealing.</li>
+      <li>Create a Reddit outreach log before writing more replies.</li>
+      <li>Submit to OpenAI review only after affiliate disclosure, privacy, terms, and public app metadata are final.</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p>Source files: <code>STATUS.md</code> and <code>docs/AFFILIATE_APPLICATIONS.md</code>.</p>
+</footer>`);
+}
+
 async function readJson(req) {
   const chunks = [];
   for await (const chunk of req) chunks.push(chunk);
@@ -234,6 +285,11 @@ Support contact: sholtsman29@gmail.com
         sendText(res, 200, page("Support", `
 <header><h1>Support</h1><p class="lead">For support, privacy, legal, or partnership questions, contact <a href="mailto:sholtsman29@gmail.com">sholtsman29@gmail.com</a>.</p></header>
 <main><p><a href="/">Home</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p></main>`), "text/html; charset=utf-8");
+        return;
+      }
+
+      if (req.method === "GET" && url.pathname === "/dashboard") {
+        sendText(res, 200, operationsDashboardPage(), "text/html; charset=utf-8");
         return;
       }
 
